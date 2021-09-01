@@ -8,6 +8,6 @@
 Note.destroy_all
 User.destroy_all
 
-user1 = User.create!(name: "Joe User", email: "joeuser@gmail.com", password: "pass123")
-note1 = Note.create!(title: "Todays Notes", body: "these are my notes for today", created_at: "Friday 12:00", user_id: user1.id  )
-note2 = Note.create!(title: "More Notes", body: "these are more notes I took", created_at: "Monday 1:00", user_id: user1.id  )
+user1 = User.create!(name: "Joe User", email: "joeuser@gmail.com", password: "!pass123!")
+note1 = Note.create!(title: "Todays Notes", body: "these are my notes for today", created_at: "Friday 12:00", user_id: user1.id)
+note2 = Note.create!(title: "More Notes", body: "these are more notes I took", created_at: "Monday 1:00", user_id: user1.id)
