@@ -3,4 +3,7 @@ Rails.application.routes.draw do
   root "welcome#index"
 
   get '/login', to: 'sessions#login'
+
+  resources :users, only: [:new]
+    get '/users/:id/dashboard', to: 'users/dashboard#index', as: :dashboard
 end
