@@ -3,9 +3,8 @@ class User < ApplicationRecord
 
   has_many :notes 
 
-
   validates_presence_of :name, 
                         :email 
-                        
+
   validates_uniqueness_of :email 
 end
