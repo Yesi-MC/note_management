@@ -9,4 +9,7 @@ Rails.application.routes.draw do
     get '/users/:id/dashboard', to: 'users/dashboard#index', as: :dashboard
     get '/users/:id/note/new', to: 'users/notes#new', as: :new_user_note
     post '/users/:id/note/new', to: 'users/notes#create'
+    get '/users/:id/note/:id', to: 'users/notes#show' , as: :notes_show
+    get '/users/:id/note/:id/edit', to: 'users/notes#edit'
+    patch '/users/:id/note/:id', to: 'users/notes#update'
 end

@@ -6,7 +6,7 @@
 <h2> All My Notes </h2>
 <h3> <% @notes.each do |note| %> </h3>
 <section id=note-<%= note.id %> >
-  Note Title: <%= note.title %>
+  Note Title: <%= link_to note.title, "/users/#{current_user.id}/note/#{note.id}", method: :get %>
   Date Created:<%= note.created_at %>
   Created by: <%= note.user.name %>
   Body Text: <%= note.body %><br><br>
