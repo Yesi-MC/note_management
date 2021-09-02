@@ -11,4 +11,5 @@ Rails.application.routes.draw do
     post '/users/:id/note/new', to: 'users/notes#create'
     get '/users/:id/note/:id', to: 'users/notes#show' , as: :notes_show
     get '/users/:id/note/:id/edit', to: 'users/notes#edit'
+    patch '/users/:id/note/:id', to: 'users/notes#update'
 end

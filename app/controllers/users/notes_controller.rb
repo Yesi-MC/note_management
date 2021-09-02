@@ -23,7 +23,13 @@ class Users::NotesController < ApplicationController
 
   def edit 
     @note = Note.find(params[:id])
-      
+  end
+
+  def update
+    @note = Note.find(params[:id])
+    @note.update(note_params)
+    flash[:notice] = "#{@note.title} was updated"
+    redirect_to "/users/#{current_user.id}/note/#{@note.id}"
   end
 
 
