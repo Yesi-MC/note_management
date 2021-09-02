@@ -8,7 +8,5 @@ Rails.application.routes.draw do
   resources :users, only: [:new]
     get '/users/:id/dashboard', to: 'users/dashboard#index', as: :dashboard
     get '/users/:id/note/new', to: 'users/notes#new', as: :new_user_note
-    
     post '/users/:id/note/new', to: 'users/notes#create'
-    # resources :notes, only: [:create]
 end
