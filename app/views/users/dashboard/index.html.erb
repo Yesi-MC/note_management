@@ -1,14 +1,14 @@
 <h1> Welcome to your Notes Dashboard <%= current_user.name %> </h1>
 
 <h3><%= button_to 'Logout', logout_path, method: :get %></h3>
-<h3><%= button_to 'New Note', new_user_note_path(current_user), method: :post %></h3>
+<h3><%= button_to 'New Note', new_user_note_path(current_user), method: :get %></h3>
 
 <h2> All My Notes </h2>
 <h3> <% @notes.each do |note| %> </h3>
 <section id=note-<%= note.id %> >
-  Note Tittle: <%= note.title %>
+  Note Title: <%= note.title %>
   Date Created:<%= note.created_at %>
   Created by: <%= note.user.name %>
-  Note Body: <%= note.body %><br><br>
+  Body Text: <%= note.body %><br><br>
   </section>
 <% end %><br>
