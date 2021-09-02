@@ -12,4 +12,5 @@ Rails.application.routes.draw do
     get '/users/:id/note/:id', to: 'users/notes#show' , as: :notes_show
     get '/users/:id/note/:id/edit', to: 'users/notes#edit'
     patch '/users/:id/note/:id', to: 'users/notes#update'
+    delete '/users/:id/note/:id', to: 'users/notes#destroy'
 end
