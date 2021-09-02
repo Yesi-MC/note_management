@@ -16,11 +16,18 @@ RSpec.describe "As a logged in user I can edit my notes" do
         click_link "Edit Note"
         
         expect(current_path).to eq("/users/#{@user1.id}/note/#{@note1.id}/edit")
-
-        
       end
-      # expect(page).to have_button(@note1.title)
-        # expect(page).to have_button("New Note")
-    
+      it "can update a note from the note show page" do 
+        visit "users/#{@user1.id}/note/#{@note1.id}"
+
+        click_link "Edit Note"
+        expect(current_path).to eq("/users/#{@user1.id}/note/#{@note1.id}/edit")
+
+        fill_in "Title", with: "Yesterday's meeting notes"
+        click_button "Update Note"
+
+        expect(page).to have_content("Title: Yesterday's meeting notes")
+        expect(page).to have_content("Body Text: these are my notes for today")
+      end
   end 
 end 
