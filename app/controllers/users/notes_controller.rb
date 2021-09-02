@@ -2,7 +2,6 @@ class Users::NotesController < ApplicationController
 
   def show 
     @note = Note.find(params[:id])
-    # require 'pry'; binding.pry
   end
 
   def new 
@@ -20,6 +19,11 @@ class Users::NotesController < ApplicationController
       flash[:notice] = "Unable to create note"
       render :new
     end
+  end
+
+  def edit 
+    @note = Note.find(params[:id])
+      
   end
 
 
