@@ -29,5 +29,13 @@ RSpec.describe "As a logged in user" do
         expect(page).to have_content(@note2.body)
       end
     end
+    it "can see a button to create notes" do 
+      visit dashboard_path(@user1.id)
+
+      expect(page).to have_button("New Note")
+      click_button "New Note"
+
+      expect(current_path).to eq(new_user_note_path(@user1.id))
+    end
   end
 end
