@@ -12,9 +12,8 @@ describe "User Login" do
 
       expect(current_path).to eq(dashboard_path(user1.id))
       expect(page).to have_content("Welcome to your Dashboard, #{user1.name}")
-      expect(page).to have_content("Logout")
+      expect(page).to have_button("Logout")
       expect(page).to_not have_content("Login")
-
     end
     describe "sad path" do 
       it "blocks login if credentials are bad" do 
@@ -28,7 +27,6 @@ describe "User Login" do
 
         expect(page).to have_content("Invalid Credentials, please try again")
         expect(current_path).to eq(root_path)
-        
       end
     end
     describe 'logged in user can logout' do 
@@ -40,7 +38,7 @@ describe "User Login" do
         fill_in :password, with: user1.password
         click_button "Login"
 
-        click_link 'Logout'
+        click_button 'Logout'
 
         expect(current_path).to eq(root_path)
       end 
