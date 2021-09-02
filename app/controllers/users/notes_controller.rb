@@ -32,6 +32,14 @@ class Users::NotesController < ApplicationController
     redirect_to "/users/#{current_user.id}/note/#{@note.id}"
   end
 
+  def destroy 
+
+    @note = Note.find(params[:id])
+    @note.destroy
+    flash[:notice] = "Note was sucessfully deleted"
+    redirect_to dashboard_path(current_user)
+  end
+
 
   private 
 
