@@ -29,17 +29,15 @@ class Users::NotesController < ApplicationController
     @note = Note.find(params[:id])
     @note.update(note_params)
     flash[:notice] = "#{@note.title} was updated"
-    redirect_to "/users/#{current_user.id}/note/#{@note.id}"
+    redirect_to dashboard_path(current_user)
   end
 
   def destroy 
-
     @note = Note.find(params[:id])
     @note.destroy
     flash[:notice] = "Note was sucessfully deleted"
     redirect_to dashboard_path(current_user)
   end
-
 
   private 
 
