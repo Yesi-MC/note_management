@@ -1,4 +1,4 @@
-<h1> Welcome to your Notes Dashboard <%= current_user.name %> </h1>
+<h1> Notes Dashboard <%= current_user.name %> </h1>
 
 <h3><%= button_to 'Logout', logout_path, method: :get %></h3>
 <h3><%= button_to 'New Note', new_user_note_path(current_user), method: :get %></h3>
