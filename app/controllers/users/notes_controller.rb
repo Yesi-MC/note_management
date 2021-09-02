@@ -1,5 +1,10 @@
 class Users::NotesController < ApplicationController 
 
+  def show 
+    @note = Note.find(params[:id])
+    # require 'pry'; binding.pry
+  end
+
   def new 
     @note = Note.new
   end
@@ -16,6 +21,7 @@ class Users::NotesController < ApplicationController
       render :new
     end
   end
+
 
   private 
 
