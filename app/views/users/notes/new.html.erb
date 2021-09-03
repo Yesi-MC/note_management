@@ -1,11 +1,13 @@
- <h1>Start a New Note</h1>
+ <h1 align="center">Start a New Note</h1>
 
+<div align="center">
 <%= form_with url: new_user_note_path(current_user), model: @note, method: :post, local: true do |f|%>
-    <%= f.label :title, "Title: " %>
-    <%= f.text_field :title %>
+    <%= f.label :title, "Title: " %><br>
+    <%= f.text_field :title %><br><br>
 
-    <%= f.label :body, "Body Text: " %>
-    <%= f.text_field :body %><br/>
+    <%= f.label :body, "Body Text: " %><br>
+    <%= f.text_area :body, size: "70x5" %><br>
 
     <%= f.submit "Create Note" %>
 <% end %>
+</div>
