@@ -4,6 +4,7 @@
 
 <h2 align="center"> All My Notes </h2>
 <div align="center">
+<h3><%= button_to 'New Note', new_user_note_path(current_user), method: :get %></h3>
 <h3> <% @notes.each do |note| %> </h3>
 <section id=note-<%= note.id %> >
   Note Title: <%= link_to note.title, "/users/#{current_user.id}/note/#{note.id}", method: :get %>
@@ -13,5 +14,5 @@
   </section>
 <% end %><br>
 
-<h3><%= button_to 'New Note', new_user_note_path(current_user), method: :get %></h3>
+
 </div>
