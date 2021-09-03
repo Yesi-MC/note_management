@@ -1,9 +1,9 @@
-<h1> Note Details </h1>
+<h1 align="center"> Note Details </h1>
 
-<h2>Title: <%= @note.title %></h2><br>
-Body Text: <%= @note.body %><br>
-<%= @note.created_at %><br>
-<%= current_user.name %><br>
+<h2 align="center">Title: <%= @note.title %></h2><br>
+<p align="center">Body Text: <%= @note.body %></p><br>
+<p align="center">Date Created: <%= @note.created_at.strftime("%A, %B %d, %Y") %></p><br>
+<p align="center">Created by:<%= current_user.name %></p><br>
 
-<h3><%= link_to "Edit Note", "/users/#{current_user.id}/note/#{@note.id}/edit", method: :get %></h3>
-<h3><%= button_to "Delete Note", "/users/#{current_user.id}/note/#{@note.id}", method: :delete %></h3>
+<h3 align="center"><%= link_to "Edit Note", "/users/#{current_user.id}/note/#{@note.id}/edit", method: :get %></h3>
+<h3 align="center"><%= button_to "Delete Note", "/users/#{current_user.id}/note/#{@note.id}", method: :delete %></h3>

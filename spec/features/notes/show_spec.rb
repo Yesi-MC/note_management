@@ -14,7 +14,7 @@ RSpec.describe "As a logged in user I can see notes show page" do
 
       expect(page).to have_content(@note1.title)
       expect(page).to have_content(@note1.body)
-      expect(page).to have_content(@note1.created_at)
+      expect(page).to have_content(@note1.created_at.strftime("%A, %B %d, %Y"))
       expect(page).to have_content(@user1.name)
      end
   end 

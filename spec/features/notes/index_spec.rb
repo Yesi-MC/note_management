@@ -18,13 +18,13 @@ RSpec.describe "As a logged in user" do
 
       within "#note-#{@note1.id}" do 
         expect(page).to have_content(@note1.title)
-        expect(page).to have_content(@note1.created_at)
+        expect(page).to have_content(@note1.created_at.strftime("%A, %B %d, %Y"))
         expect(page).to have_content(@note1.user.name)
         expect(page).to have_content(@note1.body)
       end
       within "#note-#{@note2.id}" do 
         expect(page).to have_content(@note2.title)
-        expect(page).to have_content(@note2.created_at)
+        expect(page).to have_content(@note2.created_at.strftime("%A, %B %d, %Y"))
         expect(page).to have_content(@note2.user.name)
         expect(page).to have_content(@note2.body)
       end
