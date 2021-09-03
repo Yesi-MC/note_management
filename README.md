@@ -42,8 +42,9 @@ On the note show page you have the ability to edit and/or delete the note.
 ## Testing
 
 * For testing I used RSpec
-
 > RSpec is a tool for unit testing that will ensure we have the intended functionality at each level of our code.
+
+* For continous intergration I used Travis CI
 
 * In order to run the tests, run `bundle exec rspec` in the command line and you should have all passing tests.
   
