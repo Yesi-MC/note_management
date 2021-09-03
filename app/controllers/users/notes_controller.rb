@@ -17,8 +17,17 @@ class Users::NotesController < ApplicationController
     elsif invalid_body_length?
       flash[:notice] = "Body cannot be more than 1000 characters"
       render :new
-    else
+    elsif empty_title? && body_not_empty? 
+      @note.update(title: params[:note][:body][0..29])
       if @note.save
+        flash[:notice] = "#{@note.title} was created"
+        redirect_to dashboard_path(current_user)
+      else 
+        flash[:notice] = "Unable to create note"
+        render :new
+      end
+    else
+      if @note.save 
         flash[:notice] = "#{@note.title} was created"
         redirect_to dashboard_path(current_user)
       else 
@@ -72,6 +81,13 @@ class Users::NotesController < ApplicationController
     params[:note][:body].length > 1000
   end
 
+  def empty_title?
+    params[:note][:title].length == 0
+  end
+
+  def body_not_empty?
+    params[:note][:body].length != 0
+  end
 end
 
 
