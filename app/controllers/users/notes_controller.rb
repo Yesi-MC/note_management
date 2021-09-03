@@ -11,14 +11,21 @@ class Users::NotesController < ApplicationController
   def create 
     @user = User.find(params[:id])
     @note = @user.notes.new(note_params)
-
-    if @note.save
-    flash[:notice] = "#{@note.title} was created"
-    redirect_to dashboard_path(current_user)
-    else 
-      flash[:notice] = "Unable to create note"
+    if invalid_title_length?
+      flash[:notice] = "Title cannot be more than 30 characters"
       render :new
-    end
+    elsif invalid_body_length?
+      flash[:notice] = "Body cannot be more than 1000 characters"
+      render :new
+    else
+      if @note.save
+        flash[:notice] = "#{@note.title} was created"
+        redirect_to dashboard_path(current_user)
+      else 
+        flash[:notice] = "Unable to create note"
+        render :new
+      end
+    end 
   end
 
   def edit 
@@ -27,9 +34,21 @@ class Users::NotesController < ApplicationController
 
   def update
     @note = Note.find(params[:id])
-    @note.update(note_params)
-    flash[:notice] = "#{@note.title} was updated"
-    redirect_to dashboard_path(current_user)
+    if invalid_title_length?
+      flash[:notice] = "Title cannot be more than 30 characters"
+      render :edit
+    elsif invalid_body_length?
+      flash[:notice] = "Body cannot be more than 1000 characters"
+      render :edit
+    else
+      if @note.update(note_params)
+        flash[:notice] = "#{@note.title} was updated"
+        redirect_to dashboard_path(current_user)
+      else 
+        flash[:notice] = "Unable to create note"
+        render :edit
+      end
+    end 
   end
 
   def destroy 
@@ -44,4 +63,18 @@ class Users::NotesController < ApplicationController
   def note_params 
     params.require(:note).permit(:title, :body)
   end
+
+  def invalid_title_length?
+    params[:note][:title].length > 30
+  end
+
+  def invalid_body_length?
+    params[:note][:body].length > 1000
+  end
+
 end
+
+
+
+
+ 
