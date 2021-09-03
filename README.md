@@ -36,7 +36,7 @@ Once this application is open in your web browser, click on `Login`.
 You will be directed to your user dashboard where you can see all your notes and you can add a new note. 
 
 The note title is a link to the note show page.
-On the note show page you have the abaility to edit and/or delete the note.
+On the note show page you have the ability to edit and/or delete the note.
 
 
 ## Testing
